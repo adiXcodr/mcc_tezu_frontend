@@ -1,0 +1,4 @@
+flask==1.0.2
+os
+requests
+gunicorn==19.9.0
