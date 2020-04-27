@@ -29,7 +29,11 @@ Follow the steps for working on this repository strictly :
 
 3. Add or Edit the routes and functions in the file app.py
 
-4. Modify HTML/CSS accordingly
+4. Modify HTML/CSS accordingly in the htmls
+
+5. Add external scripts and packages in layout.html. 
+
+6. Make the Header & the Footer in layout.html
 
 
 <br> 

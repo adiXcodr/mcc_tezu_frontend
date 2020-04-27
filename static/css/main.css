@@ -1,0 +1,11 @@
+.main_header,.main_footer{
+    width:100%;
+}
+.main_header{
+    margin-bottom: 50px;
+}
+
+.main_footer{
+    margin-top: 50px;
+}
+
