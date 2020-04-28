@@ -26,6 +26,9 @@
     transform: rotate(360deg);
 }
 
+html{
+    overflow-x: hidden;
+}
 body{
     overflow-x: hidden;
     height: 100%;
