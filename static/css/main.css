@@ -27,6 +27,7 @@
 }
 
 body{
+    overflow-x: hidden;
     height: 100%;
     background-color: var(--primary-dark-background);
     margin: 0;
