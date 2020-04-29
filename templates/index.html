@@ -1,6 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
-
 <!--Put your Home Page Content here-->
-
+<div class="overlay" id="particles-js"></div>
+<div class="banner">
+    <h2><span style="color:#ff6611;">WE ARE </span><span class="type"></span></h2>
+</div>
+<div class="sub-banner">
+    <h3><span style="color:white;font-size: 30px;">Tezpur </span><span class="sub" style="color:#ff6611;font-size: 30px;"></span></h3>
+</div>
+<div class="section">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis eaque nisi voluptatem ullam dolores laborum maxime dolore? Hic amet autem molestiae officiis voluptates commodi, deleniti ex placeat, similique impedit adipisci.
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem dignissimos mollitia in. Officia repellendus eligendi accusantium quam provident. Deserunt assumenda veniam sint eos similique repellendus exercitationem consectetur inventore et in.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste facilis voluptatum numquam nulla similique voluptates praesentium? Assumenda sed quasi perspiciatis? Totam officia quasi inventore fugiat, delectus culpa dolores quisquam reiciendis.
+</div>
+<script src="../static/js/typed.js"></script>
+<script>
+    var typed = new Typed('.type', {
+    strings: [
+        'THE ONE', 
+        'WHO CODES'
+    ],
+    typeSpeed: 60,
+    backSpeed:60,
+    loop:true
+});
+var typed = new Typed('.sub', {
+    strings: [
+        'University', 
+    ],
+    typeSpeed: 60,
+    backSpeed:60,
+    loop:true
+});
+</script>
 {% endblock %}
