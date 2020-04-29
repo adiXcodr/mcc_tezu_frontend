@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+body {
+  width: 100%;
+  height: 120vh;
+  margin: 0;
+  padding: 0;
+  background: url(../img/203524.jpg) no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.banner {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  text-align: center;
+  margin: auto;
+}
+
+.banner span {
+  font-weight: 900;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+
+.sub-banner {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  text-align: center;
+  margin: auto;
+}
+
+.sub-banner span {
+  font-weight: 900;
+  color: white;
+  text-align: center;
+}
+
+.section {
+  background-color: white;
+  width: 100%;
+  padding: 100px;
+}
+
+.nav-wrapper {
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  margin-bottom: 10%;
+}
+
+.navbar {
+  border-radius: 0;
+  border-bottom: 0;
+}
+
+.navbar-inverse {
+  background-color: transparent;
+  border-bottom: 0;
+}
+
+.navbar-inverse .navbar-brand {
+  padding-top: 10px;
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color: white;
+}
+
+.navbar-inverse .navbar-toggle {
+  border: none;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.navbar-inverse .navbar-toggle:focus {
+  background-color: transparent;
+}
+
+.nav-container {
+  width: 90%;
+  margin: auto;
+  border-bottom: 0;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  border-bottom: 1px solid white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#nav-first-active {
+  color: white;
+  font-weight: 900;
+}
+
+.banner-img {
+  margin-top: 10vh;
+}
+
+.footer-wrapper {
+  width: 100%;
+  min-height: 50px;
+  position: relative;
+  top: 120vh;
+  background-color: #161616;
+}
+
+.footer-wrapper .footer-container {
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer-wrapper .footer-container .footer-element {
+  color: #ff6611;
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    top: 35%;
+    left: 5%;
+  }
+  .sub-banner {
+    top: 50%;
+    left: 10%;
+  }
+  .nav {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}
+/*# sourceMappingURL=common.css.map */
