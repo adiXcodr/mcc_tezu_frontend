@@ -1,22 +1,81 @@
 {% extends "layout.html" %}
 {% block content %}
+
+
 <div style="padding: 25% 10% 10% 10%; background: rgb(230, 230, 230);">
-<div class="notifiactions-list">
-<ul>
-{%for x in notifications %}
-<li>
-    
-</li>
-{%endfor%}
-</ul>
-</div>
+
+<div class="row">
+    <div class="col-md-12">            
+        <div class="panel-body">
+          <ul id="ulist" class="list-group">
+            {%for x in notifications %}
+            <li>
+                <form action="{{url_for('delete')}}" method="post">
+                    <input type="number" name="id" id="id" value="{{x._id}}">
+                    <input type="date" name="date" id="date" value="{{x.date}}">
+                    <input type="text" name="title" id="title" value="{{x.title}}">
+                    <input type="text" name="text" id="text" value="{{x.notification}}">
+                    <button type="submit">DELETE</button>
+                    <a data-toggle="modal"  data-target="#editModal" onclick="">Try it</a>
+                </form>
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="editModalLabel">Update Blog</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form action="{{url_for('update')}}" method="post" role="form">
+                          <div class="form-group">
+                            <label for="recipient-name" class="control-label">Id:</label>
+                            <input type="text" class="form-control" value="{{x._id}}" id="edit_id">
+                          </div>
+                          <div class="form-group">
+                            <label for="recipient-name" class="control-label">Title:</label>
+                            <input type="text" class="form-control" value="{{x.title}}" id="edit_title">
+                          </div>
+                          <div class="form-group">
+                            <label for="recipient-name" class="control-label">Date:</label>
+                            <input type="text" class="form-control" value="{{x.date}}" id="edit_date">
+                          </div>
+                          <div class="form-group">
+                            <label for="message-text" class="control-label">Description:</label>
+                            <input type="text" class="form-control" value="{{x.notification}}" id="edit_text" ></input type="text">
+                          </div>
+                          <button id="btnUpdate" type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+            </li>
+            {%endfor%}                               
+          </ul>
+        </div>             
+    </div>
+  </div>
+
 
 <form action="{{url_for('add_notifications')}}" method="post">
-    <input type="number" name="id" id="id" placeholder="ENTER ID" required>
-    <input type="text" name="title" id="title" placeholder="TITLE" required>
-    <input type="text" name="text" id="text" placeholder="ENTER NOTIFICATION" required>
+    <input type="number" name="id" id="id_i" placeholder="ENTER ID" required>
+    <input type="text" name="title" id="title_i" placeholder="TITLE" required>
+    <input type="text" name="text" id="text_i" placeholder="ENTER NOTIFICATION" required>
     <button type="submit">SUBMIT</button>
 </form>
 </div>
+
+
+  
+  
+  
+
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
 
 {% endblock %}
