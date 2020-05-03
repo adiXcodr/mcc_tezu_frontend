@@ -44,24 +44,22 @@ def add_notifications():
     text=request.form['text']
     DT = datetime.datetime.now()
     currentDT=datetime.date.isoformat(DT)
-    res=requests.post("https://mcctezu-backend.herokuapp.com/run-model/notifications/add",json={"_id":id,"date":currentDT,"title":title,"notification":text})
+    res=requests.post("https://mcctezu-backend.herokuapp.com/run-model/notifications/add",json={"_id":int(id),"date":currentDT,"title":title,"notification":text})
     return notifications()
 
-@app.route("/notifications/",methods=["POST","GET","DELETE","UPDATE"])
-def delete():
-    id=request.form['id']
+@app.route("/notifications/",methods=["POST"])
+def delete(id):
     print(id)
-    res=requests.delete("https://mcctezu-backend.herokuapp.com/run-model/notifications/delete_one",json={"_id":id})
+    res=requests.delete("https://mcctezu-backend.herokuapp.com/run-model/notifications/delete_one",json={"_id":int(id)})
     print(res)
     return notifications()
-@app.route("/notifications/update",methods=["POST","GET","DELETE","UPDATE","PUT"])
+@app.route("/notifications/update",methods=["POST"])
 def update():
-    id=request.form['edit_id']
-    date=request.form['edit_date']
-    title=request.form['edit_title']
-    text=request.form['edit_text']
-    print(id)
-    res=requests.put("https://mcctezu-backend.herokuapp.com/run-model/notifications/update",json={"_id":int(id),"date":date,"title":title,"notification":text})
+    id=request.form['id']
+    date=request.form['date']
+    title=request.form['title']
+    text=request.form['text']
+    res=requests.put("https://mcctezu-backend.herokuapp.com/run-model/notifications/update",json={"_id":int(id),"date":str(date),"title":str(title),"notification":str(text)})
     print(res)
     return notifications()
 
