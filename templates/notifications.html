@@ -1,22 +1,55 @@
 {% extends "layout.html" %}
 {% block content %}
+
+
 <div style="padding: 25% 10% 10% 10%; background: rgb(230, 230, 230);">
-<div class="notifiactions-list">
-<ul>
-{%for x in notifications %}
-<li>
-    
-</li>
-{%endfor%}
-</ul>
-</div>
+
+<div class="row">
+    <div class="col-md-12">            
+        <div class="panel-body">
+          <ul id="ulist" class="list-group">
+            {%for x in notifications %}
+            <li>
+                <form action="{{url_for('delete')}}" method="post">
+                    <input type="number" name="id" id="id" value="{{x._id}}">
+                    <input type="date" name="date" id="date" value="{{x.date}}">
+                    <input type="text" name="title" id="title" value="{{x.title}}">
+                    <input type="text" name="text" id="text" value="{{x.notification}}">
+                    <a href="{{url_for('delete',id="></a>
+                    <a data-toggle="modal"  data-target="#{{x._id}}" onclick="">Try it</a>
+                </form>
+                <div class="modal fade" id="{{x._id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                  <form action="{{url_for('update')}}" method="post">
+                    <input type="number" name="id" id="id" value="{{x._id}}">
+                    <input type="date" name="date" id="date" value="{{x.date}}">
+                    <input type="text" name="title" id="title" value="{{x.title}}">
+                    <input type="text" name="text" id="text" value="{{x.notification}}">
+                    <button type="submit">Update</button>
+                </form>
+                </div>
+              
+            </li>
+            {%endfor%}                               
+          </ul>
+        </div>             
+    </div>
+  </div>
+
 
 <form action="{{url_for('add_notifications')}}" method="post">
-    <input type="number" name="id" id="id" placeholder="ENTER ID" required>
-    <input type="text" name="title" id="title" placeholder="TITLE" required>
-    <input type="text" name="text" id="text" placeholder="ENTER NOTIFICATION" required>
+    <input type="number" name="id" id="id_i" placeholder="ENTER ID" required>
+    <input type="text" name="title" id="title_i" placeholder="TITLE" required>
+    <input type="text" name="text" id="text_i" placeholder="ENTER NOTIFICATION" required>
     <button type="submit">SUBMIT</button>
 </form>
 </div>
+
+
+  
+  
+  
+
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
 
 {% endblock %}
