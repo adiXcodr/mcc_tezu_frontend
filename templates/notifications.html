@@ -1,6 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
+<div style="padding: 25% 10% 10% 10%; background: rgb(230, 230, 230);">
+<div class="notifiactions-list">
+<ul>
+{%for x in notifications %}
+<li>
+    
+</li>
+{%endfor%}
+</ul>
+</div>
 
-<!--Put your Notifications Content here-->
+<form action="{{url_for('add_notifications')}}" method="post">
+    <input type="number" name="id" id="id" placeholder="ENTER ID" required>
+    <input type="text" name="title" id="title" placeholder="TITLE" required>
+    <input type="text" name="text" id="text" placeholder="ENTER NOTIFICATION" required>
+    <button type="submit">SUBMIT</button>
+</form>
+</div>
 
 {% endblock %}
