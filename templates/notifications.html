@@ -1,55 +1,149 @@
 {% extends "layout.html" %}
+{% block headerlinks %}<!-- Fonts from Fontawesome-->
+<script src="https://kit.fontawesome.com/fd8c3f9f09.js" crossorigin="anonymous"></script>
+{% endblock %}
 {% block content %}
-
-
-<div style="padding: 25% 10% 10% 10%; background: rgb(230, 230, 230);">
-
-<div class="row">
-    <div class="col-md-12">            
-        <div class="panel-body">
-          <ul id="ulist" class="list-group">
-            {%for x in notifications %}
-            <li>
-                <form action="{{url_for('delete')}}" method="post">
-                    <input type="number" name="id" id="id" value="{{x._id}}">
-                    <input type="date" name="date" id="date" value="{{x.date}}">
-                    <input type="text" name="title" id="title" value="{{x.title}}">
-                    <input type="text" name="text" id="text" value="{{x.notification}}">
-                    <a href="{{url_for('delete',id="></a>
-                    <a data-toggle="modal"  data-target="#{{x._id}}" onclick="">Try it</a>
-                </form>
-                <div class="modal fade" id="{{x._id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                  <form action="{{url_for('update')}}" method="post">
-                    <input type="number" name="id" id="id" value="{{x._id}}">
-                    <input type="date" name="date" id="date" value="{{x.date}}">
-                    <input type="text" name="title" id="title" value="{{x.title}}">
-                    <input type="text" name="text" id="text" value="{{x.notification}}">
-                    <button type="submit">Update</button>
-                </form>
-                </div>
-              
-            </li>
-            {%endfor%}                               
-          </ul>
-        </div>             
+<div class="header">
+      
+</div>
+<div class="section" >
+<div class="notification-container">
+  <h2>Notifications Table</h2>
+  <p>Type something in the input field to search the notification table for id , date , title or descripttion:</p>  
+  <input class="form-control" id="Input" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Discription</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="Notification-Table">
+      {%for x in notifications %} 
+      <tr>
+        <td>{{x._id}}</td>
+        <td>{{x.date}}</td>
+        <td>{{x.title}}</td>
+        <td>{{x.notification}}</td>
+        <td> <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#{{x._id}}Delete">Delete</button></td>
+        <td><button type="button" class="btn btn-info " data-toggle="modal" data-target="#{{x._id}}Edit">Edit</button></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Add">Add</button>
+</div>
+</div>
+<div class="modals">
+  {%for x in notifications %}
+    <!--Delete Modal -->
+    <div id="{{x._id}}Delete" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete Noification</h4>
+          </div>
+          <form action="{{url_for('delete_notifications')}}" method="post">
+            <div class="modal-body">
+              <p>Enter Notifications Id {{x._id}} for confermation.</p>
+              <input type="number" name="id" id="id" placeholder="Entre Id">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--Edit Modal -->
+    <div id="{{x._id}}Edit" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Edit Noification</h4>
+          </div>
+          <form action="{{url_for('update_notifications')}}" method="post">
+            <div class="modal-body">
+              <div class="form-group">
+                <label  for="id">Id:</label>
+                <input type="number" class="form-control" placeholder="Enter Id" name="id" id="id" value="{{x._id}}" >
+              </div>
+              <div class="form-group">
+                <label  for="id">Title:</label>
+                <input type="text" class="form-control" placeholder="Enter Title" name="title" id="title" value="{{x.title}}">
+              </div> 
+              <div class="form-group">
+                <label  for="id">Date:</label>
+                <input type="date" class="form-control" placeholder="Enter date" name="date" id="date" value="{{x.date}}">
+              </div> 
+              <div class="form-group">
+                <label  for="id">Discription:</label>
+                <input type="text" class="form-control" placeholder="Enter Discription" name="text" id="text" value="{{x.notification}}">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">Update</button>
+              <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>      
+  {% endfor %}
+</div>
+<!--Add Modal-->
+<div id="Add" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Noification</h4>
+      </div>
+      <form action="{{url_for('add_notifications')}}" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <label  for="id">Id:</label>
+            <input type="number" class="form-control" placeholder="Enter Id" name="id" id="id">
+          </div>
+          <div class="form-group">
+            <label  for="id">Title:</label>
+            <input type="text" class="form-control" placeholder="Enter Title" name="title" id="title">
+          </div> 
+          <div class="form-group">
+            <label  for="id">Discription:</label>
+            <input type="text" class="form-control" placeholder="Enter Discription" name="text" id="text">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Add</button>
+          <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
     </div>
   </div>
-
-
-<form action="{{url_for('add_notifications')}}" method="post">
-    <input type="number" name="id" id="id_i" placeholder="ENTER ID" required>
-    <input type="text" name="title" id="title_i" placeholder="TITLE" required>
-    <input type="text" name="text" id="text_i" placeholder="ENTER NOTIFICATION" required>
-    <button type="submit">SUBMIT</button>
-</form>
 </div>
 
 
-  
-  
-  
-
-  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
-
+<script>
+  $(document).ready(function(){
+    $("#Input").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#Notification-Table tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+  </script>
 
 {% endblock %}
