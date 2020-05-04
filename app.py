@@ -48,13 +48,14 @@ def add_notifications():
     return notifications()
 
 @app.route("/notifications/",methods=["POST"])
-def delete(id):
+def delete_notifications():
+    id=request.form['id']
     print(id)
     res=requests.delete("https://mcctezu-backend.herokuapp.com/run-model/notifications/delete_one",json={"_id":int(id)})
     print(res)
     return notifications()
 @app.route("/notifications/update",methods=["POST"])
-def update():
+def update_notifications():
     id=request.form['id']
     date=request.form['date']
     title=request.form['title']
