@@ -121,7 +121,12 @@ body{
         }
     }
 }
+.notification-container{
+    background-color: white;
+    margin-top: 10%;
+    z-index: 10;
 
+}
 // MEDIA QUERIES
 @media screen and (max-width:768px){
     .banner{

@@ -136,6 +136,12 @@ body {
   color: #ff6611;
 }
 
+.notification-container {
+  background-color: white;
+  margin-top: 10%;
+  z-index: 10;
+}
+
 @media screen and (max-width: 768px) {
   .banner {
     top: 35%;
