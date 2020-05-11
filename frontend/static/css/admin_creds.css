@@ -1,0 +1,98 @@
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #f3f2f2e3;
+}
+
+.outer {
+  position: relative;
+  top: 10%;
+}
+
+.header {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #ff6611;
+  text-align: center;
+}
+
+.sub-header {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 1.5px;
+  color: #ff6611;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-header-light {
+  letter-spacing: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  color: #5e6c84;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-header-heavy {
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  height: 20px;
+  margin-bottom: 15px;
+  color: #5e6c84;
+}
+
+.btn-dsgn {
+  background-color: #ff6611;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
+}
+
+.btn-dsgn:hover {
+  background-color: #ff5800b5;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.form-group-dsgns:hover {
+  background-color: rgba(221, 221, 221, 0.89);
+  -webkit-transition: 0.4s ease-in;
+  transition: 0.4s ease-in;
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 1200px) {
+  .body {
+    background-color: white;
+  }
+  .header {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .form-header-light {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+  .form-dsgn {
+    border-radius: 4px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+    padding: 30px;
+    background-color: white;
+  }
+  .form-dsgn-rgst {
+    border-radius: 4px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+    padding: 20px;
+    background-color: white;
+  }
+}
+/*# sourceMappingURL=admin_creds.css.map */

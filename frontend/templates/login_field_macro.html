@@ -1,0 +1,10 @@
+{% macro render_field(field) %}
+<div class='form-group'>
+    {{field(class='form-control form-group-dsgns', **kwargs)|safe}}
+    <ul class='form_field_errors'>
+        {% for error in field.errors %}
+        <li class='field_error_item'>{{error}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}

@@ -1,0 +1,180 @@
+{% extends "admin-dash-layout.html" %}
+{% block header_links %}
+<link rel="stylesheet" type="text/css" href="../static/css/swiper.min.css">
+{% endblock %}
+{% block content %}
+<section id="dash-content-wrapper">
+    <div class="container dash-content">
+        <div class="row row1">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="col-xs-12 col-sm-10 col-md-5 evt">
+                            <div class="inside">
+                                <h3 class="r1h1 fnt">Events</h3>
+                                <div class='content'>
+                                    <div class="main-options">
+                                        <ul class="links">
+                                            <li class="links-items add">
+                                                <a href="#" class="links-active">
+                                                    ADD
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    EDIT
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    VIEW
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="add-event-form-wrapper">
+                                        <form method="POST" id="add-evt-form" action="{{url_for('admin.admin_add_event')}}">
+                                            {{renderfield(form.name,placeholder=form.name.label.text)}}
+                                            {{renderfield(form.org,placeholder=form.org.label.text)}}
+                                            {{renderfield(form.date,placeholder=form.date.label.text)}}
+                                            {{renderfield(form.time,placeholder=form.time.label.text)}}
+                                            {{renderfield(form.venue,placeholder=form.venue.label.text)}}
+                                            <div class="form-group">
+                                                <button class="btn form-control">Add</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="col-xs-12 col-sm-10 col-md-5 ntf">
+                            <div class="inside">
+                                <h3 class="r1h1 fnt">Notifications</h3>
+                                <div class='content'>
+                                    <div class="main-options">
+                                        <ul class="links">
+                                            <li class="links-items add">
+                                                <a href="#" class="links-active">
+                                                    ADD
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    EDIT
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    VIEW
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="col-xs-12 col-sm-10 col-md-5 mbr">
+                            <div class="inside">
+                                <h3 class="r1h1 fnt">Members</h3>
+                                <div class='content'>
+                                    <div class="main-options">
+                                        <ul class="links">
+                                            <li class="links-items add">
+                                                <a href="#" class="links-active">
+                                                    ADD
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    EDIT
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    VIEW
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="col-xs-12 col-sm-10 col-md-5 adm">
+                            <div class="inside">
+                                <h3 class="r1h1 fnt">Admins</h3>
+                                <div class='content'>
+                                    <div class="main-options">
+                                        <ul class="links">
+                                            <li class="links-items add">
+                                                <a href="#" class="links-active">
+                                                    ADD
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    REMOVE
+                                                </a>
+                                            </li>
+                                            <li class="links-items">
+                                                <a href="#" class="links-active">
+                                                    VIEW
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row2">
+            <div class="col-xs-12 col-sm-10 col-md-8 sr">
+                <div class="inner-sr">
+                    <div class="sr-content">
+                        <h3 class="r2h2 fnt">Status Response</h3>
+                        <div class="status">
+                            {% if res=="success" %}
+                                <span id='status' style="color:rgb(15, 167, 15);">SUCCESS</span>
+                            {% elif res=="failure" %}
+                                <span id='status' style="color:red;">FAILURE</span>
+                            {% else %}
+                                <span id='status' style="color:#ff6611;">NO RESPONSE</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/display-admin-forms.js"></script>
+<script src="../static/js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+</script>
+{% endblock %}

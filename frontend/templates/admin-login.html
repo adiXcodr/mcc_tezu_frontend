@@ -1,0 +1,51 @@
+{% from "login_field_macro.html" import render_field %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mozilla Campus Club | Welcome</title>
+    <link rel="icon" href="../static/img/moz.png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Common CSS-->
+    <link rel='stylesheet' type="text/css" href="../static/css/admin_creds.css">
+    <!--Jinja Temp-->
+    {% block header_link %}{% endblock %}
+</head>
+<body>
+    <div class="container outer">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 form-box">
+            <div class='header'>Mozilla Campus Club</div>
+            <div class="sub-header">Tezpur University</div>
+            {% with messages= get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{category}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method='POST' class='form-dsgn' action="{{url_for('admin.admin_login')}}">
+                {{form.csrf_token}}
+                <div class="form-group">
+                    <div class='col-xs-offset-2 col-xs-8 form-header-light text-center'>Login to continue:</div>
+                    <div class='col-xs-offset-2 col-xs-8 form-header-heavy text-center'>Admin Panel</div>
+                </div>
+                {{ render_field(form.username,placeholder=form.username.label.text)}}
+                {{ render_field(form.password,placeholder=form.password.label.text)}}
+                <div class="form-group">{{form.recaptcha}}</div>
+                <div class='form-group'>
+                    <button class='form-control btn-dsgn' type='submit'>Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
