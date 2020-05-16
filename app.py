@@ -24,11 +24,6 @@ def events():
 def members():
     return render_template("members.html")
 
-@app.route("/notifications")
-def notifications():
-    notifications=requests.get("https://mcctezu-backend.herokuapp.com/run-model/notifications/fetch").json()      
-    return render_template("notifications.html",notifications=notifications["data"])
-
 @app.route("/our-services")
 def our_services():
     return render_template("our-services.html")
@@ -37,7 +32,19 @@ def our_services():
 def publications():
     return render_template("publications.html")
 
-@app.route("/notifications",methods=["POST"])
+@app.route("/notifications")
+def notification():
+    notifications=requests.get("https://mcctezu-backend.herokuapp.com/run-model/notifications/fetch").json()      
+    return render_template("notifications.html",notifications=notifications["data"])
+
+
+'''@app.route("/admin/notifications")
+def notifications():
+    notifications=requests.get("https://mcctezu-backend.herokuapp.com/run-model/notifications/fetch").json()      
+    return render_template("notifications.html",notifications=notifications["data"])'''
+
+
+'''@app.route("/admin/notifications",methods=["POST"])
 def add_notifications():
     id=request.form['id']
     title=request.form['title']
@@ -47,14 +54,14 @@ def add_notifications():
     res=requests.post("https://mcctezu-backend.herokuapp.com/run-model/notifications/add",json={"_id":int(id),"date":currentDT,"title":title,"notification":text})
     return notifications()
 
-@app.route("/notifications/",methods=["POST"])
+@app.route("/admin/notifications/",methods=["POST"])
 def delete_notifications():
     id=request.form['id']
     print(id)
     res=requests.delete("https://mcctezu-backend.herokuapp.com/run-model/notifications/delete_one",json={"_id":int(id)})
     print(res)
     return notifications()
-@app.route("/notifications/update",methods=["POST"])
+@app.route("/admin/notifications/update",methods=["POST"])
 def update_notifications():
     id=request.form['id']
     date=request.form['date']
@@ -62,7 +69,7 @@ def update_notifications():
     text=request.form['text']
     res=requests.put("https://mcctezu-backend.herokuapp.com/run-model/notifications/update",json={"_id":int(id),"date":str(date),"title":str(title),"notification":str(text)})
     print(res)
-    return notifications()
+    return notifications()'''
 
 """
 @app.routes("/admin")
