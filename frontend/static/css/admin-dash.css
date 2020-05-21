@@ -3,8 +3,8 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  background-image: -webkit-gradient(linear, left top, right top, from(#333333), to(#dd1818));
-  background-image: linear-gradient(to right, #333333, #dd1818);
+  background-image: -webkit-gradient(linear, left top, right top, from(#c31432), to(#240b36));
+  background-image: linear-gradient(to right, #c31432, #240b36);
 }
 
 .side-bar-wrapper {
@@ -163,7 +163,8 @@ a:hover {
 }
 
 #dash-content-wrapper .dash-content .evt, #dash-content-wrapper .dash-content .ntf, #dash-content-wrapper .dash-content .mbr, #dash-content-wrapper .dash-content .adm {
-  background-color: rgba(255, 49, 1, 0.67);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c31432), to(#240b36));
+  background-image: linear-gradient(to bottom, #c31432, #240b36);
   margin: 20px;
   -webkit-clip-path: polygon(0% 100%, 0% 0%, 80% 0%, 100% 20%, 100% 100%);
           clip-path: polygon(0% 100%, 0% 0%, 80% 0%, 100% 20%, 100% 100%);
@@ -173,7 +174,7 @@ a:hover {
 #dash-content-wrapper .dash-content .inside {
   -webkit-clip-path: polygon(0% 80%, 0% 0%, 80% 0%, 100% 20%, 100% 100%, 20% 100%);
           clip-path: polygon(0% 80%, 0% 0%, 80% 0%, 100% 20%, 100% 100%, 20% 100%);
-  background: rgba(11, 11, 11, 0.59);
+  background: rgba(11, 11, 11, 0.62);
 }
 
 #dash-content-wrapper .dash-content .content {
@@ -216,7 +217,8 @@ a:hover {
 }
 
 #dash-content-wrapper .dash-content .sr {
-  background-color: rgba(255, 49, 1, 0.67);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c31432), to(#240b36));
+  background-image: linear-gradient(to bottom, #c31432, #240b36);
   margin: 20px;
   -webkit-clip-path: polygon(0% 100%, 0% 0%, 90% 0%, 100% 20%, 100% 100%);
           clip-path: polygon(0% 100%, 0% 0%, 90% 0%, 100% 20%, 100% 100%);
@@ -227,7 +229,7 @@ a:hover {
 #dash-content-wrapper .dash-content .sr .inner-sr {
   -webkit-clip-path: polygon(0% 80%, 0% 0%, 90% 0%, 100% 20%, 100% 100%, 10% 100%);
           clip-path: polygon(0% 80%, 0% 0%, 90% 0%, 100% 20%, 100% 100%, 10% 100%);
-  background: rgba(11, 11, 11, 0.59);
+  background: rgba(11, 11, 11, 0.62);
   min-height: 20vh;
 }
 
@@ -240,32 +242,57 @@ a:hover {
   padding-top: 20px;
 }
 
-#add-evt-form .form-control {
+.fnt2 {
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+  color: white;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+#add-evt-form .form-control, #search-event .form-control, #search-notifications .form-control, #search-admin .form-control {
   border: 1px solid #ff6611;
   background-color: transparent;
   color: #ff6611;
 }
 
-#add-evt-form ::-webkit-input-placeholder {
+#add-evt-form ::-webkit-input-placeholder, #search-event ::-webkit-input-placeholder, #search-notifications ::-webkit-input-placeholder, #search-admin ::-webkit-input-placeholder {
   color: #ff6611;
 }
 
-#add-evt-form :-ms-input-placeholder {
+#add-evt-form :-ms-input-placeholder, #search-event :-ms-input-placeholder, #search-notifications :-ms-input-placeholder, #search-admin :-ms-input-placeholder {
   color: #ff6611;
 }
 
-#add-evt-form ::-ms-input-placeholder {
+#add-evt-form ::-ms-input-placeholder, #search-event ::-ms-input-placeholder, #search-notifications ::-ms-input-placeholder, #search-admin ::-ms-input-placeholder {
   color: #ff6611;
 }
 
-#add-evt-form ::placeholder {
+#add-evt-form ::placeholder, #search-event ::placeholder, #search-notifications ::placeholder, #search-admin ::placeholder {
   color: #ff6611;
 }
 
-#add-evt-form .btn {
-  background-color: rgba(255, 49, 1, 0.67);
+#update-evt-form .form-control, #update-ntf-form .form-control {
+  border: 1px solid white;
+  background-color: transparent;
   color: white;
-  border: none;
+}
+
+#update-evt-form ::-webkit-input-placeholder, #update-ntf-form ::-webkit-input-placeholder {
+  color: white;
+}
+
+#update-evt-form :-ms-input-placeholder, #update-ntf-form :-ms-input-placeholder {
+  color: white;
+}
+
+#update-evt-form ::-ms-input-placeholder, #update-ntf-form ::-ms-input-placeholder {
+  color: white;
+}
+
+#update-evt-form ::placeholder, #update-ntf-form ::placeholder {
+  color: white;
 }
 
 .status #status {
@@ -278,10 +305,6 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.add-event-form-wrapper {
-  display: none;
 }
 
 .active {
@@ -303,5 +326,107 @@ a:hover {
   background-size: cover;
   width: 300px;
   height: 300px;
+}
+
+.modal-dialog {
+  margin: 50px auto;
+  width: 700px;
+}
+
+.mdl-content {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c31432), to(#240b36));
+  background-image: linear-gradient(to bottom, #c31432, #240b36);
+  -webkit-clip-path: polygon(0% 100%, 0% 0%, 80% 0%, 100% 20%, 100% 100%);
+          clip-path: polygon(0% 100%, 0% 0%, 80% 0%, 100% 20%, 100% 100%);
+  padding: 30px;
+  overflow-y: hidden;
+}
+
+.mdl-content .modal-header {
+  border: none;
+  margin-right: 50px;
+}
+
+.mdl-content .modal-header .modal-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mdl-content .modal-header .modal-title .mdl-back {
+  background: transparent;
+  color: #ff6611;
+  font-family: "Roboto";
+  font-size: 20px;
+}
+
+.mdl-inside {
+  width: 90%;
+  margin: auto;
+  -webkit-clip-path: polygon(0% 90%, 0% 0%, 80% 0%, 100% 19%, 100% 100%, 10% 100%);
+          clip-path: polygon(0% 90%, 0% 0%, 80% 0%, 100% 19%, 100% 100%, 10% 100%);
+  background: rgba(11, 11, 11, 0.62);
+}
+
+.uni {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c31432), to(#240b36));
+  background-image: linear-gradient(to bottom, #c31432, #240b36);
+}
+
+.mdl-btn {
+  background: transparent;
+  border: 1px solid #ff6611;
+  font-family: "Roboto";
+  font-size: 20px;
+  color: #ff6611;
+  width: 80px;
+}
+
+.mdl-btn:hover {
+  color: red;
+  border: 1px solid red;
+  -webkit-transition: 0.8s ease-in;
+  transition: 0.8s ease-in;
+}
+
+#evt-view-table, #ntf-view-table {
+  border: none;
+  padding: 20px;
+  overflow-y: hidden;
+}
+
+#evt-view-table th, #ntf-view-table th {
+  color: #ff6611;
+  font-family: "Roboto";
+  font-size: 15px;
+  -webkit-column-span: 2;
+          column-span: 2;
+  border-top: none;
+}
+
+#evt-view-table tr, #ntf-view-table tr {
+  padding: 10px;
+}
+
+#evt-view-table tr td, #ntf-view-table tr td {
+  color: #ff6611;
+  padding: 10px;
+  width: 80px;
+  border-top: none;
+  overflow-x: scroll;
+}
+
+#evt-view-table tr td span, #ntf-view-table tr td span {
+  color: #ff6611;
+}
+
+#evt-view-table tr:hover, #ntf-view-table tr:hover {
+  background-color: #c06534;
 }
 /*# sourceMappingURL=admin-dash.css.map */

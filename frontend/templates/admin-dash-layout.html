@@ -1,4 +1,7 @@
-{% from "admin-page-formmacro.html"  import renderfield %}
+{% from "admin-page-formmacro.html" import renderevent %}
+{% from "admin-page-formmacro.html" import rendernotifications %}
+{% from "admin-page-formmacro.html" import rendermembers %}
+{% from "admin-page-formmacro.html" import renderadmin %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +66,7 @@
             </div>
         </div>
         {% block content %}{% endblock %}
+        {% block modals %}{% endblock %}
     </section>
     {% block scripts %}{% endblock %}
 </body>
