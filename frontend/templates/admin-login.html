@@ -32,7 +32,7 @@
                 {% endif %}
             {% endwith %}
             <form method='POST' class='form-dsgn' action="{{url_for('admin.admin_login')}}">
-                {{form.csrf_token}}
+                {{ form.csrf_token }}
                 <div class="form-group">
                     <div class='col-xs-offset-2 col-xs-8 form-header-light text-center'>Login to continue:</div>
                     <div class='col-xs-offset-2 col-xs-8 form-header-heavy text-center'>Admin Panel</div>

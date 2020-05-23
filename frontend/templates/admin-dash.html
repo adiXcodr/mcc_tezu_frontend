@@ -109,12 +109,10 @@
                     <div class="sr-content">
                         <h3 class="r2h2 fnt">Status Response</h3>
                         <div class="status">
-                            {% if res %}
-                                {% if res=="Success" %}
-                                    <span id='status' style="color:rgb(15, 167, 15);">SUCCESS</span>
-                                {% elif res=="Failure" %}
-                                    <span id='status' style="color:red;">FAILURE</span>
-                                {% endif %}
+                            {% if res=="Success" %}
+                                <span id='status' style="color:rgb(15, 167, 15);">SUCCESS</span>
+                            {% elif res=="Failure" %}
+                                <span id='status' style="color:red;">FAILURE</span>
                             {% else %}
                                 <span id='status' style="color:#ff6611;">NO RESPONSE</span>
                             {% endif %}
@@ -140,6 +138,7 @@
                 <div class="modal-body">
                     <div class="add-event-form-wrapper">
                         <form method="POST" id="add-evt-form" action="/admin-add-event">
+                            {{evt.csrf_token}}
                             {{renderevent(evt.name,placeholder=evt.name.label.text)}}
                             {{renderevent(evt.org,placeholder=evt.org.label.text)}}
                             {{renderevent(evt.date,placeholder=evt.date.label.text)}}
@@ -177,7 +176,7 @@
                     <table id="evt-view-table" class="table">
                         <tr>
                             <th>Event</th>
-                            <th>Event Org</th>
+                            <th>Org</th>
                             <th>Date</th>
                             <th>Time</th>
                             <th>Venue</th>
@@ -194,7 +193,7 @@
                                 <td>{{e.evt_time}}</td>
                                 <td>{{e.evt_venue}}</td>
                                 <td style="overflow-x: scroll;" data-toggle="modal" data-target="#image{{e.id}}">{{e.evt_image}}</td>
-                                <td style="width:20px;"><a href="/admin-delete-event/{{e.evt_name}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                <td style="width:20px;"><a href="/admin-delete-event/{{e.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
                                 <td style="width:20px;"><span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#update{{e.id}}"></span></td>
                             </tr>
                         {% endfor %}
@@ -220,7 +219,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="update-event-form-wrapper">
-                        <form method="POST" id="update-evt-form" action="/admin-add-event">
+                        <form method="POST" id="update-evt-form" action="/admin-update-event/{{e.id}}">
                             {{renderevent(evt.name,value=e.evt_name)}}
                             {{renderevent(evt.org,value=e.evt_org)}}
                             {{renderevent(evt.date,value=e.evt_date)}}
@@ -263,6 +262,7 @@
                 <div class="modal-body">
                     <div class="add-notification-form-wrapper">
                         <form method="POST" id="add-evt-form" action="/admin-add-notifications">
+                            {{ntf.csrf_token}}
                             {{rendernotifications(ntf.id,placeholder=ntf.id.label.text)}}
                             {{rendernotifications(ntf.title,placeholder=ntf.title.label.text)}}
                             {{rendernotifications(ntf.description,placeholder=ntf.description.label.text)}}
@@ -311,7 +311,7 @@
                                 <td>{{x.date}}</td>
                                 <td>{{x.title}}</td>
                                 <td>{{x.notification}}</td>
-                                <td style="width:20px;"><a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                <td style="width:20px;"><a href="{{url_for('admin.admin_delete_notifications',id=x._id)}}"><span class="glyphicon glyphicon-trash"></span></a></td>
                                 <td style="width:20px;"><span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#updatentf{{x._id}}"></span></td>
                             </tr>
                         {% endfor %}
@@ -337,10 +337,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="update-event-form-wrapper">
-                        <form method="POST" id="update-ntf-form" action="/admin-add-event">
+                        <form method="POST" id="update-ntf-form" action="/admin-update-notifications">
                             {{rendernotifications(ntf.id,value=x._id)}}
                             <div class="form-group">
-                                <input class="form-control" type="date" value="{{x.date}}">
+                                <input class="form-control" type="date" value="{{x.date}}" name='date'>
                             </div>
                             {{rendernotifications(ntf.title,value=x.title)}}
                             {{rendernotifications(ntf.description,value=x.notification)}}
@@ -369,7 +369,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="add-event-form-wrapper">
-                        <form method="POST" id="add-evt-form" action="/admin-add-event">
+                        <form method="POST" id="add-evt-form" action="/admin-add-one">
+                            {{adm.csrf_token}}
                             {{renderadmin(adm.fullname,placeholder=adm.fullname.label.text)}}
                             {{renderadmin(adm.username,placeholder=adm.username.label.text)}}
                             {{renderadmin(adm.password,placeholder=adm.password.label.text)}}
@@ -413,7 +414,7 @@
                             <tr>
                                 <td>{{a.fullname}}</td>
                                 <td>{{a.username}}</td>
-                                <td style="width:20px;"><a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                <td style="width:20px;"><a href="/admin-delete/{{a.username}}"><span class="glyphicon glyphicon-trash"></span></a></td>
                             </tr>
                         {% endfor %}
                         </tbody>
