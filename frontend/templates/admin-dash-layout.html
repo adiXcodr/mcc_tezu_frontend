@@ -1,0 +1,73 @@
+{% from "admin-page-formmacro.html" import renderevent %}
+{% from "admin-page-formmacro.html" import rendernotifications %}
+{% from "admin-page-formmacro.html" import rendermembers %}
+{% from "admin-page-formmacro.html" import renderadmin %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mozilla Campus Club | Welcome</title>
+    <link rel="icon" href="../static/img/moz.png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Common CSS-->
+    <link rel='stylesheet' type="text/css" href="../static/css/admin-dash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    {% block header_links %}{% endblock %}
+</head>
+<body>
+    <section class="side-bar-wrapper">
+        <div class='side-bar'>
+            <div class="container ham">
+                <div class='hamburger'>
+                    <div class="toggle-hamburger"></div>
+                    <div class="toggle-hamburger"></div>
+                    <div class="toggle-hamburger"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cards profile-section">
+                    <div class="card-header">
+                        <img src='../static/img/admin-avatar.png' class='img-responsive img-circle' alt='avatar'>
+                    </div>
+                    <div class="card-body text-center username">Admin</div>
+                </div>
+            </div>
+            <div class="row">
+                <table class='nav-table'>
+                    <tr class="nav-table-rows">
+                        <td>
+                            <li class="nav-options"><span class='glyphicon glyphicon-th-large'></span><a href="{{url_for('admin.admin_dash')}}" class="nav-links">Dashboard</a></li>
+                        </td>
+                    </tr>
+                    <tr class="nav-table-rows">
+                        <td>
+                        <li class="nav-options"><span class='glyphicon glyphicon-off'></span><a href="{{url_for('admin.admin_logout')}}" class="nav-links">Logout</a></li>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class='main-dash-wrapper'>
+        <div class="main-dash">
+            <div class="navbar navbar-light nav-dsgn">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand nav-style">Admin Panel</a>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item"><a href="#" class='nav-link nav-style'>Mozilla Campus Club</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+        {% block modals %}{% endblock %}
+    </section>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

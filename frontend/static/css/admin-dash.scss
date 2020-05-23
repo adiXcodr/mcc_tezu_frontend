@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+//CONSTANTS
+$primaryOrange:#ff6611;
+$hoverOrange:#c06534;
+$itembackcolor:rgba(0,0,0,0.3);
+$secondaryColor:white;
+$clipOutside:rgba(255, 0, 0, 0.66);
+$clipInside:rgba(11, 11, 11, 0.62);
+$fontprimary:'Roboto';
+
+body{
+    width:100%;
+    height:100vh;
+    margin:0;
+    background-image: linear-gradient(to right,#c31432,#240b36);
+}
+
+
+//-------------SECTION LEFT---------------
+.side-bar-wrapper{
+    width:20%;
+    position: fixed;
+}
+.side-bar{
+    width:100%;
+    height:100vh;
+    background-color:$itembackcolor;
+    .ham{
+        width:100%;
+        padding:10px;
+    }
+    .hamburger{
+        display:block;
+        .toggle-hamburger{
+            background-color: rgba(221, 221, 221, 0.89);
+            width:18px;
+            height:2px;
+            margin:3px;
+        }
+    }
+    .profile-section{
+        width:40%;
+        left:30%;
+        position: relative;
+    }
+}
+.username{
+    font-family:'Roboto';
+    font-weight:normal;
+    font-size:18px;
+    color:white;
+    position:relative;
+    top:60%;
+}
+.nav-table,tr,td{
+    width:80%;
+    margin: auto;
+    .nav-options{
+        list-style-type: none;
+        padding:12px;
+        span,i{
+            padding-right: 5px;
+            color: white;
+        }
+        .nav-links{
+            color:rgb(175, 175, 175);
+            text-decoration: none;
+        }
+    }
+}
+tr:hover{
+    background-color: $primaryOrange;
+    transition:0.2s ease-in;
+    .nav-options .nav-links{
+        color:white;
+    }
+}
+
+
+//------------SECTION RIGHT--------------
+.main-dash-wrapper{
+    width:80%;
+    position: absolute;
+    right:0;
+    top:0;
+    .navbar{
+        border-radius: 0;
+    }
+    .nav-dsgn{
+        background-color:$itembackcolor;
+    }
+}
+.nav-style{
+    font-family: 'Poppins',sans-serif;
+    color:$primaryOrange;
+}
+a:hover{
+    background-color: transparent;
+    color:white;
+}
+.nav > li > a:link{
+    color:$primaryOrange;
+}
+.nav > li > a:visited{
+    color:$primaryOrange;
+}
+.nav > li > a:hover{
+    background-color: transparent;
+    color:$primaryOrange;
+}
+.dash-data{
+    width:90%;
+    margin:auto;
+    .cont{
+        height:45vh;
+        .sec-a{
+            padding-left: 0;
+            .sec-a-wrapper{
+                width:98%;
+                min-height:38vh;
+                background-color: $itembackcolor;
+                padding-left: 0;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+            }
+        }
+        .sec-b{
+            height:38vh;
+            background-color: $itembackcolor;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+        }
+        .sec-c{
+            height:38vh;
+            background-color: $itembackcolor;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+        }
+    }
+}
+
+//-------DASH CONTENTS--------
+#dash-content-wrapper{
+    width:100%;
+    .dash-content{
+        width:90%;
+        margin:auto;
+        .evt, .ntf, .mbr, .adm{
+            background-image: linear-gradient(to bottom,#c31432,#240b36);
+            margin:20px;
+            clip-path: polygon(0% 100%,0% 0%,80% 0%,100% 20%,100% 100%);
+            padding-bottom:10px;
+        }
+        .inside{
+            clip-path: polygon(0% 80%,0% 0%,80% 0%,100% 20%,100% 100%,20% 100%);
+            background: $clipInside;
+        }
+        .content{
+            width:90%;
+            padding:20px 20px 20px 50px;
+            .main-options{
+                padding-bottom:20px;
+            }
+            .links{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border: 1px solid $primaryOrange;
+                padding-left: 0;
+                .links-items{
+                    list-style-type: none;
+                    padding:10px;
+                    border-bottom: 1px solid $primaryOrange;
+                    .links-active{
+                        text-decoration: none;
+                        color:$primaryOrange;
+                    }
+                }
+                .links-items:hover{
+                    background-color: $hoverOrange;
+                }
+            }
+        }
+        .sr{
+            background-image: linear-gradient(to bottom,#c31432,#240b36);
+            margin:20px;
+            clip-path: polygon(0% 100%,0% 0%,90% 0%,100% 20%,100% 100%);
+            padding-bottom:20px;
+            min-height:20vh;
+            .inner-sr{
+                clip-path: polygon(0% 80%,0% 0%,90% 0%,100% 20%,100% 100%,10% 100%);
+                background: $clipInside;
+                min-height: 20vh;
+            }
+        }
+    }
+}
+
+//-------DASH CONTENT HEADINGS-------
+.fnt{
+    font-family:  Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+    color:$primaryOrange;
+    padding-left:20px;
+    padding-top:20px;
+}
+.fnt2{
+    font-family:  Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+    color:$secondaryColor;
+    padding-left:20px;
+    padding-top:20px;
+}
+
+//-------FORMS----------------
+//----------EVENT FORMS-------
+#add-evt-form, #search-event, #search-notifications, #search-admin{
+    .form-control{
+        border:1px solid $primaryOrange;
+        background-color: transparent;
+        color:$primaryOrange;
+    }
+    ::placeholder{
+        color:$primaryOrange;
+    }
+}
+#update-evt-form,#update-ntf-form{
+    .form-control{
+        border:1px solid $secondaryColor;
+        background-color: transparent;
+        color:$secondaryColor
+    }
+    ::placeholder{
+        color:$secondaryColor
+    }
+}
+//-------STATUS RESPPONSE TEXT--------------
+.status{
+    #status{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:40px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+//----------TOGGLES--------------
+.active{
+    display:block;
+}
+.deactive{
+    display:none;
+}
+
+//------SWIPER COVERFLOW----------
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+
+//---------MODAL DESIGN----------
+.modal-dialog{
+    margin:50px auto;
+    width:700px;
+}
+.mdl-content{
+    background-image: linear-gradient(to bottom,#c31432,#240b36);
+    clip-path: polygon(0% 100%,0% 0%,80% 0%,100% 20%,100% 100%);
+    padding:30px;
+    overflow-y: hidden;
+    .modal-header{
+        border:none;
+        margin-right: 50px;
+        .modal-title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .mdl-back{
+                background: transparent;
+                color: $primaryOrange;
+                font-family:$fontprimary;
+                font-size: 20px;
+            }
+        }
+    }
+}
+.mdl-inside{
+    width:90%;
+    margin:auto;
+    clip-path: polygon(0% 90%,0% 0%,80% 0%,100% 19%,100% 100%,10% 100%);
+    background: $clipInside;
+}
+.uni{
+    background-image: linear-gradient(to bottom,#c31432,#240b36);
+}
+
+//---------BUTTONS----------
+.mdl-btn{
+    background: transparent;
+    border:1px solid $primaryOrange;
+    font-family: $fontprimary;
+    font-size: 20px;
+    color:$primaryOrange;
+    width:80px;
+}
+.mdl-btn:hover{
+    color: red;
+    border:1px solid red;
+    transition: 0.8s ease-in;
+}
+
+//----------TABLES----------
+#evt-view-table, #ntf-view-table{
+    border:none;
+    padding:20px;
+    overflow-y: hidden;
+    th{
+        color:$primaryOrange;
+        font-family: $fontprimary;
+        font-size: 15px;
+        column-span: 2;
+        border-top: none;
+    }
+    tr{
+        padding:10px;
+        td{
+            color:$primaryOrange;
+            padding:10px;
+            width:80px;
+            border-top: none;
+            overflow-x: scroll;
+            span{
+                color:$primaryOrange;
+            }
+        }
+    }
+    tr:hover{
+        background-color: $hoverOrange;
+    }
+}
