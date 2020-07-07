@@ -8,6 +8,4 @@ class EventAdd(FlaskForm):
     date=StringField('Event Date',validators=[InputRequired()])
     time=StringField('Event Time',validators=[InputRequired()])
     venue=StringField('Event Venue',validators=[InputRequired()])
-
-
-
+    
