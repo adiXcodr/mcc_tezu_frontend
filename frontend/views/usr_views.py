@@ -22,6 +22,10 @@ def members():
 def our_services():
     return render_template("our-services.html")
 
+@usr.route("/notifications")
+def notifications():
+    return render_template("notifications.html")
+
 @usr.route("/publications")
 def publications():
     return render_template("publications.html")
