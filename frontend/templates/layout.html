@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
@@ -12,8 +12,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
   {% block headerlinks %}{% endblock %}
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
 </head>
 <body>
    <!--Add NAVBAR Here-->
@@ -48,14 +53,12 @@
 
 
   <!--Add Footer Here-->
-  <div class="container-fluid footer-wrapper">
-    <div class="container footer-container">
+<footer class="row" >
       <div class="col-xs-12 text-center">
         <span class='footer-element'>Mozilla Campus Club, Tezpur University, 2020</span>
       </div>
-    </div>
-  </div>
-
+      
+    </footer>
  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
  <script src="../static/js/particles.min.js"></script>
  <script src="../static/js/app.js"></script>
