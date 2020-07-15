@@ -27,6 +27,7 @@ def admin_login():
                 return redirect(url_for("admin.admin_dash"))
             flash('username or password is incorrect','danger')
     return render_template('admin-login.html',form=form)
+
 @admin.route('/admin-dash',defaults={'res':'n'},methods=['GET'])
 @admin.route('/admin-dash/<res>',methods=['GET'])
 def admin_dash(res):
@@ -62,11 +63,11 @@ def admin_add_event():
             date=evt.date.data
             time=evt.time.data
             venue=evt.venue.data
-            f=request.files.get('image')
-            req=requests.post(url,files=f,json={"evt_name":name,"evt_org":org,"evt_date":date,"evt_time":time,"evt_venue":venue,"evt_image":"null"}).json()
+            date=str(date)
+            req=requests.post(url,json={"evt_name":name,"evt_org":org,"evt_date":date,"evt_time":time,"evt_venue":venue,"evt_image":"null"}).json()
             res=req["status"]
             return redirect(url_for('admin.admin_dash',res=res))
-        return redirect(url_for('admin.admin_dash'))
+        return redirect(url_for('admin.admin_dash',res='Failure'))
     return redirect(url_for('admin.admin_login'))
 @admin.route('/admin-delete-event/<int:id>',methods=['GET'])
 def admin_delete_event(id):
@@ -83,14 +84,14 @@ def admin_update_event(id):
             url="http://mcctezu-backend.herokuapp.com/run-model/update_events"
             evt_name=form.name.data
             evt_org=form.org.data
-            evt_date=form.date.data
+            evt_date=str(form.date.data)
             evt_time=form.time.data
             evt_venue=form.venue.data
             param={"field":{"id":id},"field_update":{"evt_name":evt_name,"evt_org":evt_org,"evt_date":evt_date,"evt_time":evt_time,"evt_venue":evt_venue}}
-            req=requests.put(url,json=param).json()
-            res=req["status"]
+            req=requests.put(url,json=param)
+            res=req.status
             return redirect(url_for('admin.admin_dash',res=res))
-        return redirect(url_for('admin.admin_dash'))
+        return redirect(url_for('admin.admin_dash',res='Failure'))
     return redirect(url_for('admin.admin_login'))
 
 @admin.route('/view/<filename>',methods=['GET'])

@@ -320,7 +320,6 @@ a:hover{
 #evt-view-table, #ntf-view-table{
     border:none;
     padding:20px;
-    overflow-y: hidden;
     th{
         color:$primaryOrange;
         font-family: $fontprimary;
@@ -335,7 +334,6 @@ a:hover{
             padding:10px;
             width:80px;
             border-top: none;
-            overflow-x: scroll;
             span{
                 color:$primaryOrange;
             }

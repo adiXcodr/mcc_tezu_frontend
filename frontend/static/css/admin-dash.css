@@ -398,7 +398,6 @@ a:hover {
 #evt-view-table, #ntf-view-table {
   border: none;
   padding: 20px;
-  overflow-y: hidden;
 }
 
 #evt-view-table th, #ntf-view-table th {
@@ -419,7 +418,6 @@ a:hover {
   padding: 10px;
   width: 80px;
   border-top: none;
-  overflow-x: scroll;
 }
 
 #evt-view-table tr td span, #ntf-view-table tr td span {
