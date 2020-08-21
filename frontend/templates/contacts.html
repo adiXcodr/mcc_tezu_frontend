@@ -1,5 +1,85 @@
 {% extends "layout.html" %}
+{% block headerlinks %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/notifications.css')}}">
+{% endblock %}
 {% block content %}
+<section class="site-section bg-light contact" id="contact-section">
+    <div class="container">
+      <div class="row mb-5 ftco-animate">
+        <div class="col-12 ftco-animate text-center">
+            <h3 class="heading"><span>CONTACT</span><span style="color:#ff6611;"> US</span></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 mb-5">
+
+          
+
+          <form action="#" class="p-5 ftco-animate bg-white">
+            
+            <h2 class="h4 text-black mb-5 ftco-animate">Contact Form</h2> 
+
+            <div class="row form-group ftco-animate">
+              <div class="col-md-6 mb-3 mb-md-0">
+                <label class="text-black" for="fname">First Name</label>
+                <input type="text" id="fname" class="form-control">
+              </div>
+              <div class="col-md-6 ftco-animate">
+                <label class="text-black" for="lname">Last Name</label>
+                <input type="text" id="lname" class="form-control">
+              </div>
+            </div>
+
+            <div class="row form-group ftco-animate">
+              
+              <div class="col-md-12">
+                <label class="text-black" for="email">Email</label> 
+                <input type="email" id="email" class="form-control">
+              </div>
+            </div>
+
+            <div class="row form-group ftco-animate">
+              
+              <div class="col-md-12">
+                <label class="text-black" for="subject">Subject</label> 
+                <input type="subject" id="subject" class="form-control">
+              </div>
+            </div>
+
+            <div class="row form-group ftco-animate">
+              <div class="col-md-12">
+                <label class="text-black" for="message">Message</label> 
+                <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+              </div>
+            </div>
+
+            <div class="row form-group ftco-animate">
+              <div class="col-md-12">
+                <input type="submit" value="Send Message" class="btn btn-primary btn-lg text-white">
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+        <div class="col-md-5 ftco-animate">
+          
+          <div class="p-4 mb-3 bg-white">
+            <p class="mb-0 font-weight-bold ftco-animate">Address</p>
+            <p class="mb-4 ftco-animate">Tezpur University, Assam, India</p>
+
+            <p class="mb-0 ftco-animate font-weight-bold">Phone</p>
+            <p class="mb-4 ftco-animate"><a href="#">+1 232 3235 324</a></p>
+
+            <p class="mb-0 font-weight-bold ftco-animate">Email Address</p>
+            <p class="mb-0 ftco-animate"><a href="#">youremail@domain.com</a></p>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
 
 <!--Put your Contacts Content here-->
 

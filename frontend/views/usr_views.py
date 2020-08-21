@@ -24,6 +24,7 @@ def our_services():
 
 @usr.route("/notifications")
 def notifications():
+    
     return render_template("notifications.html")
 
 @usr.route("/publications")

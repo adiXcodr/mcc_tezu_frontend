@@ -1,6 +1,72 @@
 {% extends "layout.html" %}
+{% block headerlinks %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/notifications.css')}}">
+{% endblock %}
 {% block content %}
 
+<section style="background-color: #eff5f5;">
+    <div class="events ftco-animate container">
+        <h3 class="heading"><span style="color:#ff6611;">E</span><span>VENTS</span></h3>
+        <p>
+            We regurlarly organises workshops, technical talks and discussions, competitions, meetups <br> 
+            to spread the message of the power of open source to fellow students. <br>
+            We also organize seminars - where we call in speakers and experts from the community <br>
+            to teach about the latest developments in open source and other technologies. <br>
+            We also organise coding events where people can test their skill.
+        </p>
+          <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello</div>
+      <div class="swiper-slide" style="background-color: rgb(58, 58, 58);">Hello </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  </div>
+</section>
+<section >
+    <div class="fcto-animate container">
+        <h3 class="heading"><span style="color:#ff6611;">Upcoming</span><span> Events</span></h3>
+        <div class="upcoming-events container" style="background-color: #ffffff;">
+            <div class="row">
+                <div class="col-sm member-card">
+                    <div class="card ftco-animate">
+                      <div class="card-top" ><i class="fas fa-thumbtack"></i>
+                          <img src="..." class="card-img-top" style="background-color: rgb(39, 39, 39); height: 15vh !important" alt="...">
+                          </div>
+                      <div class="card-body ftco-animate">
+                <h5 class="card-title">Name</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, laudantium animi mollitia modi suscipit esse corrupti? Magni repudiandae quos animi, quasi eaque veniam alias consequuntur quod atque esse laboriosam veritatis.</p>
+              </div>
+            </div>
+                  </div>
+                  
+                <div class="col-sm member-card">
+                  <div class="card ftco-animate">
+                    <div class="card-top" ><i class="fas fa-thumbtack"></i>
+                        <img src="..." class="card-img-top" style="background-color: rgb(39, 39, 39); height: 15vh !important" alt="...">
+                        </div>
+                    <div class="card-body ftco-animate">
+              <h5 class="card-title">Name</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, laudantium animi mollitia modi suscipit esse corrupti? Magni repudiandae quos animi, quasi eaque veniam alias consequuntur quod atque esse laboriosam veritatis.</p>
+            </div>
+          </div>
+                </div>
+                
+                </div>
+              </div></div>
+    </div>
+</section>
 <!--Put your Events Content here-->
 
+<script src="../static/js/swiper.min.js"></script>
 {% endblock %}

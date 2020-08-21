@@ -1,0 +1,40 @@
+.ftco-navbar-light {
+  position: fixed;
+  background: #000000 !important;
+  -webkit-box-shadow: 0 0 10px 0 #ff6611;
+  box-shadow: 0 0 10px 0 #ff6611;
+  padding: 0 15px; }
+
+
+  section{
+    background-color: #eff5f5 !important;
+    width:100%;
+    padding-top: 20vh !important;
+    padding-bottom: 3vh;
+    margin: 0;
+    text-align: center;
+}
+.upcoming-events{
+  margin:10vh 0;
+}
+.upcoming-events .member-card{
+  padding: 5vh 10vh !important ;
+}
+.card-top{
+  display: inline;
+  padding: 2vh;
+  text-align: left !important;
+}
+.card-top i{
+  font-size: x-large;
+}
+.contact{
+  padding: 3rem!important;
+  text-align: left !important;
+  border-radius: 10px;
+}
+.contact .form-control {
+  border-radius: 30px;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
