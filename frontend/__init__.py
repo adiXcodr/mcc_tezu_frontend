@@ -4,7 +4,7 @@ from .config import Development,Production
 app = Flask(__name__)
 
 #ADDING CONFIGURATIONS
-app.config.from_object(Development())
+app.config.from_object(Production())
 
 #IMPORTS TO REGISTER BLUEPRINTS
 from frontend.views.admin_views import admin
