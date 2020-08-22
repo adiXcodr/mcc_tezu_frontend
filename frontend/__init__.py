@@ -1,11 +1,10 @@
 import os
 from flask import Flask
+from .config import Development 
 app = Flask(__name__)
 
 #ADDING CONFIGURATIONS
-app.config['SECRET_KEY']='text'
-app.config['RECAPTCHA_PUBLIC_KEY']='6LeLZPEUAAAAADqu8vW2IEam3ZjgsLot11Uhe9EP'
-app.config['RECAPTCHA_PRIVATE_KEY']='6LeLZPEUAAAAAHjeIVUeVOqcrVXLsSMOOPjT7_Fy'
+app.config.from_object(Development())
 
 #IMPORTS TO REGISTER BLUEPRINTS
 from frontend.views.admin_views import admin

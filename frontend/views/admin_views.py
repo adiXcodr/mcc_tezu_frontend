@@ -8,7 +8,7 @@ from frontend.forms.eventform import EventAdd
 from frontend.forms.adminform import AdminAdd
 from frontend.forms.ntfform import NotificationAdd
 admin=Blueprint("admin",__name__)
-#http://mcctezu-backend.herokuapp.com/
+#https://mcctezu-backend.herokuapp.com/
 @admin.route("/admin",methods=['POST','GET'])
 def admin_login():
     form=LoginForm()
@@ -17,7 +17,7 @@ def admin_login():
     elif form.validate_on_submit():
         username=form.username.data
         password=form.password.data
-        url="http://mcctezu-backend.herokuapp.com/run-model/admin-view-check/{}"
+        url="https://mozcctuapi.herokuapp.com/run-model/admin-view-check/{}"
         req=requests.get(url.format(form.username.data)).json()
         if req["status"]=='Success':
             hsh=req["result"][0]["password"]
@@ -35,9 +35,9 @@ def admin_dash(res):
     form2=NotificationAdd()
     form4=AdminAdd()
     if session.get('ID',None) is not None:
-        req_evt=requests.get("http://mcctezu-backend.herokuapp.com/run-model/get_events").json()
-        req_ntf=requests.get("http://mcctezu-backend.herokuapp.com/run-model/notifications/fetch").json()
-        req_adm=requests.get("http://mcctezu-backend.herokuapp.com/run-model/admin-view").json()
+        req_evt=requests.get("https://mozcctuapi.herokuapp.com/run-model/event").json()
+        req_ntf=requests.get("https://mozcctuapi.herokuapp.com/run-model/notifications/fetch").json()
+        req_adm=requests.get("https://mozcctuapi.herokuapp.com/run-model/admin-view").json()
         events=req_evt["result"]
         notifications=req_ntf["data"]
         admin=req_adm["result"]
@@ -55,7 +55,7 @@ def admin_logout():
 @admin.route('/admin-add-event',methods=['POST'])
 def admin_add_event():
     evt=EventAdd()
-    url="http://mcctezu-backend.herokuapp.com/run-model/add_events"
+    url="https://mozcctuapi.herokuapp.com/run-model/event"
     if session.get("ID",None) is not None:
         if evt.validate_on_submit():
             name=evt.name.data
@@ -72,7 +72,7 @@ def admin_add_event():
 @admin.route('/admin-delete-event/<int:id>',methods=['GET'])
 def admin_delete_event(id):
     if session.get("ID",None) is not None:
-        req=requests.delete("http://mcctezu-backend.herokuapp.com/run-model/delete_events",json={"id":id}).json()
+        req=requests.delete("https://mozcctuapi.herokuapp.com/run-model/event",json={"id":id}).json()
         res=req["status"]
         return redirect(url_for('admin.admin_dash',res=res))
     return redirect(url_for('admin.admin_login'))
@@ -81,7 +81,7 @@ def admin_update_event(id):
     form=EventAdd()
     if session.get("ID",None) is not None:
         if form:
-            url="http://mcctezu-backend.herokuapp.com/run-model/update_events"
+            url="https://mozcctuapi.herokuapp.com/run-model/event"
             evt_name=form.name.data
             evt_org=form.org.data
             evt_date=str(form.date.data)
@@ -96,7 +96,7 @@ def admin_update_event(id):
 
 @admin.route('/view/<filename>',methods=['GET'])
 def view_image(filename):
-    req=requests.get("http://mcctezu-backend.herokuapp.com/run-model/get-img/{}".format(filename=filename))
+    req=requests.get("https://mozcctuapi.herokuapp.com/run-model/get-img/{}".format(filename=filename))
     return req.text
 
 #-----------------------NOTIFICATIONS------------------------
@@ -110,7 +110,7 @@ def add_notifications():
             text=request.form['description']
             DT = datetime.datetime.now()
             currentDT=datetime.date.isoformat(DT)
-            req=requests.post("http://mcctezu-backend.herokuapp.com/run-model/notifications/add",json={"_id":int(id),"date":currentDT,"title":title,"notification":text}).json()
+            req=requests.post("https://mozcctuapi.herokuapp.com/run-model/notifications/add",json={"_id":int(id),"date":currentDT,"title":title,"notification":text}).json()
             res=req['status']
             return redirect(url_for('admin.admin_dash',res=res))
         return redirect(url_for('admin.admin_dash',res='Failure'))
@@ -119,7 +119,7 @@ def add_notifications():
 @admin.route('/admin-delete-notification/<int:id>')
 def admin_delete_notifications(id):
     if session.get("ID",None) is not None:
-        req=requests.delete("http://mcctezu-backend.herokuapp.com/run-model/notifications/delete_one",json={"_id":int(id)}).json()
+        req=requests.delete("https://mozcctuapi.herokuapp.com/run-model/notifications/delete_one",json={"_id":int(id)}).json()
         res=req["status"]
         return redirect(url_for('admin.admin_dash',res=res))
     return redirect(url_for('admin.admin_login')) 
@@ -130,7 +130,7 @@ def update_notifications():
         date=request.form['date']
         title=request.form['title']
         text=request.form['description']
-        req=requests.put("http://mcctezu-backend.herokuapp.com/run-model/notifications/update",json={"_id":int(id),"date":str(date),"title":str(title),"notification":str(text)}).json()
+        req=requests.put("https://mozcctuapi.herokuapp.com/run-model/notifications/update",json={"_id":int(id),"date":str(date),"title":str(title),"notification":str(text)}).json()
         res=req["status"]
         return redirect(url_for('admin.admin_dash',res=res))
     return redirect(url_for('admin.admin_login'))
@@ -144,7 +144,7 @@ def admin_add_one():
             fullname=adm.fullname.data
             username=adm.username.data
             password=adm.password.data
-            req=requests.post("http://mcctezu-backend.herokuapp.com/run-model/admin-add",json={"fullname":fullname,"username":username,"password":password}).json()
+            req=requests.post("https://mozcctuapi.herokuapp.com/run-model/admin-add",json={"fullname":fullname,"username":username,"password":password}).json()
             res=req["status"]
             return redirect(url_for('admin.admin_dash',res=res))
         return redirect(url_for('admin.admin_dash',res='Failure'))
@@ -152,7 +152,7 @@ def admin_add_one():
 @app.route('/admin-delete/<uname>')
 def admin_delete(uname):
     if session.get('ID',None) is not None:
-        req=requests.delete("http://mcctezu-backend.herokuapp.com/run-model/admin-remove",json={"username":uname}).json()
+        req=requests.delete("https://mozcctuapi.herokuapp.com/run-model/admin-remove",json={"username":uname}).json()
         res=req["status"]
         return redirect(url_for('admin.admin_dash',res=res))
     return redirect(url_for('admin.admin_login'))
