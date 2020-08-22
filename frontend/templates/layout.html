@@ -1,63 +1,100 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Mozilla Campus Club | Welcome</title>
   <link rel="icon" href="../static/img/moz.png">
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
   {% block headerlinks %}{% endblock %}
-</head>
-<body>
-   <!--Add NAVBAR Here-->
-   <div class="container-fluid nav-wrapper">
-     <div class="navbar navbar-expand-lg navbar-inverse">
-       <div class="container nav-container">
-         <div class="navbar-header">
-           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navmenu">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-           </button>
-           <a href="index.html" class="navbar-brand"><img src="../static/img/logo.PNG" style="width:250px;height:40px;"></a>
-         </div>
-         <div class="collapse navbar-collapse" id="navmenu">
-           <ul class="nav navbar-nav navbar-right">
-             <li class="nav-item"><a href="/" class="nav-link" id="nav-first-active">Home</a></li>
-             <li class="nav-item"><a href="/events" class="nav-link">Events</a></li>
-             <li class="nav-item"><a href="/members" class="nav-link">Members</a></li>
-             <li class="nav-item"><a href="/notifications" class="nav-link">Notifications</a></li>
-             <li class="nav-item"><a href="/publications" class="nav-link">Publications</a></li>
-             <li class="nav-item"><a href="/our-services" class="nav-link">Our Services</a></li>
-             <li class="nav-item"><a href="/contacts" class="nav-link">Contact</a></li>
-           </ul>
-         </div>
-       </div>
-     </div>
-   </div>
-    
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<script src="https://kit.fontawesome.com/fd8c3f9f09.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_creds.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-dash.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/swiper.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	  
+	  
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/">Mozilla Campus Club<span>.</span></a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu navbar-toggler-icon"></span>
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+				<li class="nav-item"><a href="/" class="nav-link"><span>Home</span></a></li>
+				<li class="nav-item"><a href="/events" class="nav-link"><span>Events</span></a></li>
+				<li class="nav-item"><a href="/members" class="nav-link"><span>Members</span></a></li>
+				<li class="nav-item"><a href="/notifications" class="nav-link"><span>Notifications</span></a></li>
+				<li class="nav-item"><a href="/publications" class="nav-link"><span>Publications</span></a></li>
+				<li class="nav-item"><a href="/contacts" class="nav-link"><span>Contact</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
   <!--DO NOT REMOVE THIS-->
   {% block content %}{% endblock %}
 
 
   <!--Add Footer Here-->
-  <div class="container-fluid footer-wrapper">
-    <div class="container footer-container">
-      <div class="col-xs-12 text-center">
-        <span class='footer-element'>Mozilla Campus Club, Tezpur University, 2020</span>
-      </div>
-    </div>
-  </div>
+  <footer class="ftco-footer">
+    <div class="container">
+        <div class="row gap-y align-items-center">
+            <div class="col-md-4 text-center text-md-left">
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></a></li>
+                <li class="ftco-animate"><a href="#"><span class="fa fa-paper-plane"></a></li>
+                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 text-center text-md-center">
+               <a href="/">Mozilla Campus Club, Tezpur University</a>
+            </div>
+            <div class="col-md-4 text-center text-md-right">
+                <small>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</small>
+            </div>
 
- <script src="{{ url_for('static', filename='js/main.js') }}"></script>
- <script src="../static/js/particles.min.js"></script>
- <script src="../static/js/app.js"></script>
+        </div>
+    </div>
+</footer>
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+<script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery-migrate-3.0.1.min.js')}}"></script>
+
+<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
+
+<script src="{{ url_for('static', filename='js/scrollax.min.js')}}"></script> 
+
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+<script src="{{ url_for('static', filename='js/particles.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/app.js')}}"></script>
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
