@@ -3,10 +3,10 @@
 
 ## Technologies used
 * FLASK
-* HTML/CSS
+* HTML, CSS, Bootstrap
 
 ### Live Website
-https://mcctezu.herokuapp.com
+http://mozcctezu.herokuapp.com/
 
 
 ### Github Steps
